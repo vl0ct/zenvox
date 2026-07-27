@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { DashboardSidebar } from "@/features/dashboard/components/dashboard-sidebar";
+import { MobileSidebarTrigger } from "@/features/dashboard/components/mobile-sidebar-trigger";
 
 export default async function DashboardLayout({
   children,
@@ -17,6 +18,7 @@ export default async function DashboardLayout({
     <SidebarProvider defaultOpen={defaultOpen} className="h-svh">
       <DashboardSidebar />
       <SidebarInset className="min-h-0 min-w-0">
+        <MobileSidebarTrigger />
         <main className="flex min-h-0 flex-1 flex-col">{children}</main>
       </SidebarInset>
     </SidebarProvider>
