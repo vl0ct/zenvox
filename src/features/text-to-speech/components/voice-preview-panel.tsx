@@ -18,6 +18,9 @@ type VoicePreviewPanelVoice = {
 };
 
 function formatTime(seconds: number): string {
+  if (!Number.isFinite(seconds) || isNaN(seconds) || seconds < 0) {
+    return "00:00";
+  }
   return format(new Date(seconds * 1000), "mm:ss");
 }
 
@@ -45,7 +48,8 @@ export function VoicePreviewPanel({
     seekForward,
   } = useWaveSurfer({
     url: audioUrl,
-    autoplay: true,
+    // Do NOT autoplay — let the user press play explicitly.
+    autoplay: false,
   });
 
   const handleDownload = () => {
@@ -97,6 +101,7 @@ export function VoicePreviewPanel({
           )}
         />
       </div>
+
       {/* Time display */}
       <div className="flex items-center justify-center">
         <p className="text-3xl font-semibold tabular-nums tracking-tight text-foreground">
@@ -145,6 +150,7 @@ export function VoicePreviewPanel({
               size="icon-lg"
               className="rounded-full"
               onClick={togglePlayPause}
+              disabled={!isReady}
             >
               {isPlaying ? (
                 <Pause className="fill-background" />
@@ -171,7 +177,7 @@ export function VoicePreviewPanel({
               variant="outline"
               size="sm"
               onClick={handleDownload}
-              disabled={isDownloading}
+              disabled={isDownloading || !isReady}
             >
               <Download className="size-4" />
               Download

@@ -33,9 +33,25 @@ export async function GET(
     return new Response("Failed to fetch audio", { status: 502 });
   }
 
-  return new Response(audioResponse.body, {
+  // Buffer the full response instead of streaming it.
+  //
+  // Why: Next.js re-encodes a streamed body as chunked transfer, which drops
+  // the Content-Length header. Without Content-Length, WaveSurfer cannot
+  // determine the audio duration from the stream and falls back to reading
+  // the RIFF chunk-size field in the WAV header – which TTS servers commonly
+  // set to 0xFFFFFFFF as a placeholder, producing a false ~30-min duration.
+  //
+  // Buffering guarantees:
+  //   1. Content-Length is always present and accurate.
+  //   2. The response is not chunked-encoded, so Accept-Ranges/range requests
+  //      can work correctly when the browser needs partial content.
+  const buffer = await audioResponse.arrayBuffer();
+
+  return new Response(buffer, {
     headers: {
       "Content-Type": "audio/wav",
+      "Content-Length": String(buffer.byteLength),
+      "Accept-Ranges": "bytes",
       "Cache-Control": "private, max-age=3600",
     },
   });

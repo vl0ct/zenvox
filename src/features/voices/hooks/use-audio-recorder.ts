@@ -16,6 +16,9 @@ export function useAudioRecorder() {
   const wsRef = useRef<WaveSurfer | null>(null);
   const micStreamRef = useRef<{ onDestroy: () => void } | null>(null);
 
+  // ------------------------------------------------------------------
+  // destroyWaveSurfer – tears down the waveform visualiser only
+  // ------------------------------------------------------------------
   const destroyWaveSurfer = useCallback(() => {
     if (micStreamRef.current) {
       micStreamRef.current.onDestroy();
@@ -27,22 +30,41 @@ export function useAudioRecorder() {
     }
   }, []);
 
+  // ------------------------------------------------------------------
+  // cleanup – stops everything: timer, recorder, mic stream, waveform
+  // ------------------------------------------------------------------
   const cleanup = useCallback(() => {
     if (timerRef.current) {
       clearInterval(timerRef.current);
       timerRef.current = null;
     }
-    if (recorderRef.current) {
-      recorderRef.current.destroy();
-      recorderRef.current = null;
-    }
+    destroyWaveSurfer();
+    // Stop mic tracks BEFORE destroying RecordRTC so the browser
+    // removes the red recording indicator promptly.
     if (streamRef.current) {
       streamRef.current.getTracks().forEach((track) => track.stop());
       streamRef.current = null;
     }
-    destroyWaveSurfer();
+    if (recorderRef.current) {
+      recorderRef.current.destroy();
+      recorderRef.current = null;
+    }
   }, [destroyWaveSurfer]);
 
+  // ------------------------------------------------------------------
+  // BUG FIX: ensure the microphone is released if the component
+  // unmounts while a recording is still in progress (e.g. user navigates
+  // away mid-recording). Without this the browser keeps the red mic dot.
+  // ------------------------------------------------------------------
+  useEffect(() => {
+    return () => {
+      cleanup();
+    };
+  }, [cleanup]);
+
+  // ------------------------------------------------------------------
+  // Waveform visualiser for the recording UI
+  // ------------------------------------------------------------------
   useEffect(() => {
     if (!isRecording || !containerRef.current || !streamRef.current) return;
 
@@ -55,16 +77,13 @@ export function useAudioRecorder() {
       barRadius: 1,
       cursorWidth: 0,
       barMinHeight: 10,
-      barHeight: 2,
       normalize: true,
     });
 
     wsRef.current = ws;
 
     const record = ws.registerPlugin(
-      RecordPlugin.create({
-        scrollingWaveform: true,
-      }),
+      RecordPlugin.create({ scrollingWaveform: true }),
     );
 
     const handle = record.renderMicStream(streamRef.current);
@@ -75,15 +94,16 @@ export function useAudioRecorder() {
     };
   }, [isRecording, destroyWaveSurfer]);
 
+  // ------------------------------------------------------------------
+  // startRecording
+  // ------------------------------------------------------------------
   const startRecording = useCallback(async () => {
     try {
       setError(null);
       setAudioBlob(null);
       setElapsedTime(0);
 
-      const stream = await navigator.mediaDevices.getUserMedia({
-        audio: true,
-      });
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
 
       const { default: RecordRTC, StereoAudioRecorder } =
@@ -105,6 +125,7 @@ export function useAudioRecorder() {
         setElapsedTime((Date.now() - startTime) / 1000);
       }, 100);
     } catch (err) {
+      // Release the stream if RecordRTC setup failed after getUserMedia succeeded.
       cleanup();
 
       if (err instanceof DOMException && err.name === "NotAllowedError") {
@@ -117,6 +138,9 @@ export function useAudioRecorder() {
     }
   }, [cleanup]);
 
+  // ------------------------------------------------------------------
+  // stopRecording
+  // ------------------------------------------------------------------
   const stopRecording = useCallback(
     (onBlob?: (blob: Blob) => void) => {
       const recorder = recorderRef.current;
@@ -124,15 +148,24 @@ export function useAudioRecorder() {
 
       recorder.stopRecording(() => {
         const blob = recorder.getBlob();
+
+        // BUG FIX: call cleanup() BEFORE updating state.
+        // Previously cleanup was called after setIsRecording(false), which
+        // meant React could re-render and unmount the waveform container
+        // while WaveSurfer was still attached to it, causing canvas errors.
+        cleanup();
+
         setAudioBlob(blob);
         setIsRecording(false);
-        cleanup();
         onBlob?.(blob);
       });
     },
     [cleanup],
   );
 
+  // ------------------------------------------------------------------
+  // resetRecording
+  // ------------------------------------------------------------------
   const resetRecording = useCallback(() => {
     cleanup();
     setIsRecording(false);
