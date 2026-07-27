@@ -116,6 +116,26 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@utility frosted {
+  background: color-mix(
+    in oklch,
+    transparent,
+    var(--color-background) 70%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@utility frosted-dark {
+  background: color-mix(
+    in oklch,
+    transparent,
+    var(--color-background) 60%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
