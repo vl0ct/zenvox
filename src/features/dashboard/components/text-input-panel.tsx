@@ -24,48 +24,50 @@ export function TextInputPanel() {
   };
 
   return (
-    <div className="relative rounded-2xl border border-border/50 frosted dark:frosted-dark overflow-hidden">
-      <div className="p-4 sm:p-6">
-        <Textarea
-          placeholder="Start typing or paste your text here..."
-          className="min-h-32 resize-none border-0 bg-transparent p-0 shadow-none focus-visible:ring-0 text-sm"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          maxLength={TEXT_MAX_LENGTH}
-        />
+    <div className="rounded-[22px] bg-linear-185 from-[#ff8ee3] from-15% via-[#57d7e0] via-39% to-[#dbf1f2] to-85% p-0.5 shadow-[0_0_0_4px_white]">
+      <div className="rounded-4xl bg-[#F9F9F9] p-1">
+        <div className="space-y-4 rounded-2xl bg-white p-4 drop-shadow-xs">
+          <Textarea
+            placeholder="Start typing or paste your text here..."
+            className="min-h-32 resize-none border-0 bg-transparent p-0 shadow-none focus-visible:ring-0 text-sm"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            maxLength={TEXT_MAX_LENGTH}
+          />
 
-        <div className="mt-4 flex items-center justify-between">
-          <Badge variant="outline" className="gap-1.5 border-border/50 rounded-full">
-            <Coins className="size-3" />
-            <span className="text-xs">
-              {text.length === 0 ? (
-                "Start typing to estimate"
-              ) : (
-                <>
-                  <span className="tabular-nums">
-                    ${(text.length * COST_PER_UNIT).toFixed(4)}
-                  </span>{" "}
-                  estimated
-                </>
-              )}
+          <div className="flex items-center justify-between">
+            <Badge variant="outline" className="gap-1.5 border-dashed rounded-full">
+              <Coins className="size-3" />
+              <span className="text-xs">
+                {text.length === 0 ? (
+                  "Start typing to estimate"
+                ) : (
+                  <>
+                    <span className="tabular-nums">
+                      ${(text.length * COST_PER_UNIT).toFixed(4)}
+                    </span>{" "}
+                    estimated
+                  </>
+                )}
+              </span>
+            </Badge>
+            <span className="text-xs text-muted-foreground">
+              {text.length.toLocaleString()} /{" "}
+              {TEXT_MAX_LENGTH.toLocaleString()} characters
             </span>
-          </Badge>
-          <span className="text-xs text-muted-foreground">
-            {text.length.toLocaleString()} /{" "}
-            {TEXT_MAX_LENGTH.toLocaleString()} characters
-          </span>
+          </div>
         </div>
-      </div>
 
-      <div className="flex items-center justify-end border-t border-border/50 px-4 py-3 sm:px-6">
-        <Button
-          size="sm"
-          disabled={!text.trim()}
-          onClick={handleGenerate}
-          className="rounded-full w-full sm:w-auto"
-        >
-          Generate speech
-        </Button>
+        <div className="flex items-center justify-end p-3">
+          <Button
+            size="sm"
+            disabled={!text.trim()}
+            onClick={handleGenerate}
+            className="rounded-full w-full sm:w-auto"
+          >
+            Generate speech
+          </Button>
+        </div>
       </div>
     </div>
   );

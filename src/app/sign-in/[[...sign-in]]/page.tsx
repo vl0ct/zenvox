@@ -4,7 +4,7 @@ import { clerkAppearance } from "@/lib/clerk-appearance";
 
 export default function SignInPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#F5F8F2]">
+    <div className="flex min-h-screen items-center justify-center bg-background">
       <SignIn
         appearance={{
           ...clerkAppearance,

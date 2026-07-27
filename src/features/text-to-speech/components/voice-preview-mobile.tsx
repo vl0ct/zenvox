@@ -87,7 +87,7 @@ export function VoicePreviewMobile({
   if (!audioUrl) return null;
 
   return (
-    <div className="border-t border-[#B8C9A8]/30 lg:hidden p-4">
+    <div className="border-t lg:hidden p-4">
       <audio ref={audioRef} src={audioUrl} />
       <div className="grid grid-cols-[1fr_auto] items-center gap-4">
         <div className="min-w-0">
