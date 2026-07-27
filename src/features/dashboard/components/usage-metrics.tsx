@@ -45,16 +45,16 @@ export function UsageMetrics() {
             stiffness: 200,
             delay: i * 0.08,
           }}
-          className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 p-4"
+          className="rounded-2xl border border-border/50 frosted dark:frosted-dark p-4"
         >
           <div className="flex items-center gap-3">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-border/50 bg-muted">
-              <item.icon className="size-4 text-muted-foreground" />
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border/50">
+              <item.icon className="size-4" />
             </div>
             <div className="min-w-0">
               <p className="text-xs text-muted-foreground">{item.label}</p>
               {item.value !== null ? (
-                <p className="text-sm font-semibold tabular-nums">
+                <p className="text-sm font-serif tabular-nums">
                   {item.value}
                 </p>
               ) : (

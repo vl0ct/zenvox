@@ -59,14 +59,14 @@ function NavSection({ label, items, pathname }: NavSectionProps) {
                 asChild={!!item.url}
                 isActive={
                   item.url
-                    ? item.url === "/"
-                      ? pathname === "/"
-                      : pathname.startsWith(item.url)
+                    ? item.url === "/dashboard" && pathname === "/dashboard"
+                      ? true
+                      : item.url !== "/dashboard" && pathname.startsWith(item.url)
                     : false
                 }
                 onClick={item.onClick}
                 tooltip={item.title}
-                className="h-9 px-3 py-2 text-[13px] tracking-tight font-medium border border-transparent data-[active=true]:border-[#B8C9A8]/50 data-[active=true]:bg-[#E8F0E4]/20 data-[active=true]:shadow-[0px_1px_1px_0px_rgba(107,143,94,0.06),inset_0px_0px_0px_2px_white]"
+                className="h-9 px-3 py-2 text-[13px] tracking-tight font-medium"
               >
                 {item.url ? (
                   <Link href={item.url}>
@@ -95,17 +95,17 @@ export function DashboardSidebar() {
   const mainMenuItems: MenuItem[] = [
     {
       title: "Dashboard",
-      url: "/",
+      url: "/dashboard",
       icon: Home,
     },
     {
       title: "Explore voices",
-      url: "/voices",
+      url: "/dashboard/voices",
       icon: LayoutGrid,
     },
     {
       title: "Text to speech",
-      url: "/text-to-speech",
+      url: "/dashboard/text-to-speech",
       icon: AudioLines,
     },
     {
@@ -132,7 +132,7 @@ export function DashboardSidebar() {
       <SidebarHeader className="flex flex-col gap-4 pt-4">
         <div className="flex items-center gap-2 pl-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:pl-0">
           <AudioWaveform className="size-6 shrink-0" />
-          <span className="group-data-[collapsible=icon]:hidden font-semibold text-lg tracking-tighter text-foreground">
+          <span className="group-data-[collapsible=icon]:hidden font-serif font-medium text-lg tracking-tight text-foreground">
             Zenvox
           </span>
           <SidebarTrigger className="ml-auto lg:hidden" />
@@ -149,9 +149,9 @@ export function DashboardSidebar() {
                   rootBox:
                     "w-full! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:flex! group-data-[collapsible=icon]:justify-center!",
                   organizationSwitcherTrigger:
-                    "w-full! justify-between! bg-white! border! border-[#B8C9A8]/50! rounded-md! pl-1! pr-2! py-1! gap-3! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:p-1! shadow-[0px_1px_1.5px_0px_rgba(107,143,94,0.06)]!",
+                    "w-full! justify-between! rounded-full! pl-1! pr-2! py-1! gap-3! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:p-1! border! border-border/50!",
                   organizationPreview: "gap-2!",
-                  organizationPreviewAvatarBox: "size-6! rounded-sm!",
+                  organizationPreviewAvatarBox: "size-6! rounded-full!",
                   organizationPreviewTextContainer:
                     "text-xs! tracking-tight! font-medium! text-foreground! group-data-[collapsible=icon]:hidden!",
                   organizationPreviewMainIdentifier: "text-[13px]!",
@@ -163,7 +163,7 @@ export function DashboardSidebar() {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <div className="border-b border-dashed border-border" />
+      <div className="border-b border-border/50" />
       <SidebarContent>
         <NavSection items={mainMenuItems} pathname={pathname} />
         <NavSection
@@ -172,7 +172,7 @@ export function DashboardSidebar() {
           pathname={pathname}
         />
       </SidebarContent>
-      <div className="border-b border-dashed border-border" />
+      <div className="border-b border-border/50" />
       <SidebarFooter className="gap-3 py-3">
         <SidebarMenu>
           <SidebarMenuItem>
@@ -186,7 +186,7 @@ export function DashboardSidebar() {
                   rootBox:
                     "w-full! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:flex! group-data-[collapsible=icon]:justify-center!",
                   userButtonTrigger:
-                    "w-full! justify-between! bg-white! border! border-[#B8C9A8]/50! rounded-md! pl-1! pr-2! py-1! shadow-[0px_1px_1.5px_0px_rgba(107,143,94,0.06)]! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:p-1! group-data-[collapsible=icon]:after:hidden! [--border:color-mix(in_srgb,transparent,var(--clerk-color-neutral,#000000)_15%)]!",
+                    "w-full! justify-between! rounded-full! pl-1! pr-2! py-1! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:p-1! group-data-[collapsible=icon]:after:hidden! border! border-border/50! [--border:color-mix(in_srgb,transparent,var(--clerk-color-neutral,#000000)_15%)]!",
                   userButtonBox: "flex-row-reverse! gap-2!",
                   userButtonOuterIdentifier:
                     "text-[13px]! tracking-tight! font-medium! text-foreground! pl-0! group-data-[collapsible=icon]:hidden!",

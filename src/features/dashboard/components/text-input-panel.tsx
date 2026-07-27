@@ -20,62 +20,52 @@ export function TextInputPanel() {
     const trimmed = text.trim();
     if (!trimmed) return;
 
-    router.push(`/text-to-speech?text=${encodeURIComponent(trimmed)}`);
+    router.push(`/dashboard/text-to-speech?text=${encodeURIComponent(trimmed)}`);
   };
 
   return (
-    <div
-      className="
-      rounded-[22px] bg-linear-185 from-[#8BA888] from-15% via-[#B8C9A8] via-39% to-[#E8F0E4] to-85% p-0.5 shadow-[0_0_0_4px_white]
-    "
-    >
-      <div className="rounded-4xl bg-[#F9F9F9] p-1">
-        <div className="space-y-4 rounded-2xl bg-white p-4 drop-shadow-xs">
-          <Textarea
-            placeholder="Start typing or paste your text here..."
-            className="min-h-35 resize-none border-0 bg-transparent p-0 shadow-none focus-visible:ring-0"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            maxLength={TEXT_MAX_LENGTH}
-          />
+    <div className="relative rounded-2xl border border-border/50 frosted dark:frosted-dark overflow-hidden">
+      <div className="p-4 sm:p-6">
+        <Textarea
+          placeholder="Start typing or paste your text here..."
+          className="min-h-32 resize-none border-0 bg-transparent p-0 shadow-none focus-visible:ring-0 text-sm"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          maxLength={TEXT_MAX_LENGTH}
+        />
 
-          {/* Bottom info */}
-
-          <div className="flex items-center justify-between">
-            <Badge variant="outline" className="gap-1.5 border-dashed">
-              <Coins className="size-3 text-chart-5" />
-              <span className="text-xs">
-                {text.length === 0 ? (
-                  "Start typing to estimate"
-                ) : (
-                  <>
-                    <span className="tabular-nums">
-                      ${(text.length * COST_PER_UNIT).toFixed(4)}
-                    </span>{" "}
-                    estimated
-                  </>
-                )}
-              </span>
-            </Badge>
-            <span className="text-xs text-muted-foreground">
-              {text.length.toLocaleString()} /{" "}
-              {TEXT_MAX_LENGTH.toLocaleString()} characters
+        <div className="mt-4 flex items-center justify-between">
+          <Badge variant="outline" className="gap-1.5 border-border/50 rounded-full">
+            <Coins className="size-3" />
+            <span className="text-xs">
+              {text.length === 0 ? (
+                "Start typing to estimate"
+              ) : (
+                <>
+                  <span className="tabular-nums">
+                    ${(text.length * COST_PER_UNIT).toFixed(4)}
+                  </span>{" "}
+                  estimated
+                </>
+              )}
             </span>
-          </div>
+          </Badge>
+          <span className="text-xs text-muted-foreground">
+            {text.length.toLocaleString()} /{" "}
+            {TEXT_MAX_LENGTH.toLocaleString()} characters
+          </span>
         </div>
+      </div>
 
-        {/* Action bar */}
-
-        <div className="flex items-center justify-end p-3">
-          <Button
-            size="sm"
-            disabled={!text.trim()}
-            onClick={handleGenerate}
-            className="w-full lg:w-auto"
-          >
-            Generate speech
-          </Button>
-        </div>
+      <div className="flex items-center justify-end border-t border-border/50 px-4 py-3 sm:px-6">
+        <Button
+          size="sm"
+          disabled={!text.trim()}
+          onClick={handleGenerate}
+          className="rounded-full w-full sm:w-auto"
+        >
+          Generate speech
+        </Button>
       </div>
     </div>
   );
