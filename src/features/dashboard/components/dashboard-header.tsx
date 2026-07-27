@@ -1,7 +1,9 @@
 "use client";
 
+"use client";
+
 import { useUser } from "@clerk/nextjs";
-import { Headphones, ThumbsUp } from "lucide-react";
+import { AudioWaveform, BookOpen, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -14,6 +16,7 @@ export function DashboardHeader() {
       <div className="space-y-1">
         <p className="text-sm text-muted-foreground">Nice to see you</p>
         <h1 className="text-2xl lg:text-3xl font-semibold tracking-tight">
+          <AudioWaveform className="inline-block size-7 mr-2 -mt-0.5 text-[#5B6B4A]" />
           {isLoaded ? (user?.fullName ?? user?.firstName ?? "there") : "..."}
         </h1>
       </div>
@@ -21,13 +24,13 @@ export function DashboardHeader() {
       <div className="lg:flex items-center gap-3 hidden">
         <Button variant="outline" size="sm" asChild>
           <Link href="#">
-            <ThumbsUp />
-            <span className="hidden lg:block">Feedback</span>
+            <Sparkles />
+            <span className="hidden lg:block">Quick tips</span>
           </Link>
         </Button>
         <Button variant="outline" size="sm" asChild>
           <Link href="#">
-            <Headphones />
+            <BookOpen />
             <span className="hidden lg:block">Need help?</span>
           </Link>
         </Button>

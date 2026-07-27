@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 import {
@@ -27,6 +26,7 @@ import {
   Volume2,
   Settings,
   Headphones,
+  AudioWaveform,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -131,13 +131,7 @@ export function DashboardSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader className="flex flex-col gap-4 pt-4">
         <div className="flex items-center gap-2 pl-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:pl-0">
-          <Image
-            src="/logo.svg"
-            alt="Zenvox"
-            width={24}
-            height={24}
-            className="rounded-sm"
-          />
+          <AudioWaveform className="size-6 shrink-0" />
           <span className="group-data-[collapsible=icon]:hidden font-semibold text-lg tracking-tighter text-foreground">
             Zenvox
           </span>
