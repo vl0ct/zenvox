@@ -74,7 +74,7 @@ export function VoicePreviewPanel({
   };
 
   return (
-    <div className="h-full gap-8 flex-col border-t hidden flex-1 lg:flex">
+    <div className="h-full gap-8 flex-col border-t border-[#B8C9A8]/30 hidden flex-1 lg:flex">
       {/* Header */}
       <div className="p-6 pb-0">
         <h3 className="font-semibold text-foreground">Voice preview</h3>
