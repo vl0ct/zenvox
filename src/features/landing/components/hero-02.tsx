@@ -97,7 +97,7 @@ export function Hero02({
   const titleElement = title && (
     <h1
       className={cn(
-        "text-foreground font-serif font-normal tracking-tight text-balance",
+        "text-foreground/80 font-serif font-normal tracking-tight text-balance",
         vs.title,
       )}
     >
@@ -117,7 +117,7 @@ export function Hero02({
     </p>
   );
 
-  const ctaElement = <Cta cta={primaryCTA} />;
+  const ctaElement = <Cta className="border-none shadow-sm bg-accent-foreground/80" cta={primaryCTA} />;
 
   const mediaElement = (
     <div className="relative w-full overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10">
@@ -151,7 +151,7 @@ export function Hero02({
       >
         <Reveal
           active={animate}
-          className={cn("flex max-w-2xl flex-col items-start", vs.header)}
+          className={cn("flex max-w-2xl flex-col items-start pt-20", vs.header)}
         >
           {titleElement}
           {descriptionElement}
