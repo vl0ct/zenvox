@@ -4,7 +4,7 @@ import { QuickActionCard } from "@/features/dashboard/components/quick-action-ca
 export function QuickActionsPanel() {
   return (
     <div className="space-y-4">
-      <h2 className="text-lg font-serif font-medium">Quick actions</h2>
+      <h2 className="text-lg font-serif font-medium ml-4">Quick actions</h2>
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {quickActions.map((action) => (
           <QuickActionCard
