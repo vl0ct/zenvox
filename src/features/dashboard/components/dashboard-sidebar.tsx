@@ -47,7 +47,7 @@ function NavSection({ label, items, pathname }: NavSectionProps) {
   return (
     <SidebarGroup>
       {label && (
-        <SidebarGroupLabel className="text-[13px] uppercase text-muted-foreground">
+        <SidebarGroupLabel className="text-[13px] uppercase text-muted-foreground tracking-widest ml-2">
           {label}
         </SidebarGroupLabel>
       )}
@@ -61,7 +61,8 @@ function NavSection({ label, items, pathname }: NavSectionProps) {
                   item.url
                     ? item.url === "/dashboard" && pathname === "/dashboard"
                       ? true
-                      : item.url !== "/dashboard" && pathname.startsWith(item.url)
+                      : item.url !== "/dashboard" &&
+                        pathname.startsWith(item.url)
                     : false
                 }
                 onClick={item.onClick}
@@ -108,10 +109,6 @@ export function DashboardSidebar() {
       url: "/dashboard/text-to-speech",
       icon: AudioLines,
     },
-    {
-      title: "Voice cloning",
-      icon: Volume2,
-    },
   ];
 
   const othersMenuItems: MenuItem[] = [
@@ -120,22 +117,18 @@ export function DashboardSidebar() {
       icon: Settings,
       onClick: () => clerk.openOrganizationProfile(),
     },
-    {
-      title: "Help and support",
-      url: "#",
-      icon: Headphones,
-    },
   ];
 
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="flex flex-col gap-4 pt-4">
-        <div className="flex items-center gap-2 pl-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:pl-0">
-          <AudioWaveform className="size-6 shrink-0" />
-          <span className="group-data-[collapsible=icon]:hidden font-serif font-medium text-lg tracking-tight text-foreground">
-            Zenvox
-          </span>
-          <SidebarTrigger className="ml-auto lg:hidden" />
+        <div className="flex items-center group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:pl-0">
+          <Link href="/">
+            <span className="group-data-[collapsible=icon]:hidden pl-2 font-serif font-medium text-xl tracking-tight text-foreground">
+              Zenvox
+            </span>
+          </Link>
+          <SidebarTrigger className="ml-auto" />
         </div>
         <SidebarMenu>
           <SidebarMenuItem>
