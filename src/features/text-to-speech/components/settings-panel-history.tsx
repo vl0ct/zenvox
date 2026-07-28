@@ -46,7 +46,7 @@ export function SettingsPanelHistory() {
         <Link
           href={`/dashboard/text-to-speech/${generation.id}`}
           key={generation.id}
-          className="flex items-center gap-3 rounded-lg p-3 text-left transition-colors hover:bg-muted"
+          className="flex items-center gap-3 rounded-xl border border-border/50 frosted dark:frosted-dark p-3 text-left shadow-sm transition-all duration-300 hover:shadow-md"
         >
           <div className="flex min-w-0 flex-1 flex-col gap-0.5">
             <p className="truncate text-sm font-medium text-foreground">
