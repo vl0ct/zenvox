@@ -75,9 +75,9 @@ export function VoiceCard({ voice }: VoiceCardProps) {
   );
 
   return (
-    <div className="flex items-center gap-1 overflow-hidden rounded-xl border pr-3 lg:pr-6">
+    <div className="flex items-center gap-1 overflow-hidden rounded-2xl border border-border/50 frosted dark:frosted-dark shadow-sm pr-3 lg:pr-6">
       <div className="relative h-24 w-20 shrink-0 lg:h-30 lg:w-24">
-        <div className="absolute left-0 top-0 h-24 w-10 border-r bg-muted/50 lg:h-30 lg:w-12" />
+        <div className="absolute left-0 top-0 h-24 w-10 outline outline-1 outline-black/10 dark:outline-white/10 bg-muted/50 lg:h-30 lg:w-12" />
 
         <div className="absolute inset-0 flex items-center justify-center">
           <VoiceAvatar
@@ -89,7 +89,7 @@ export function VoiceCard({ voice }: VoiceCardProps) {
       </div>
 
       <div className="flex min-w-0 flex-1 flex-col gap-1.5 lg:gap-3">
-        <div className="flex items-center gap-1.5 line-clamp-1 text-sm font-medium tracking-tight">
+        <div className="flex items-center gap-1.5 line-clamp-1 text-sm font-serif font-normal tracking-tight text-foreground/80">
           {voice.name}
           <span className="size-1 shrink-0 rounded-full bg-muted-foreground/50" />
           <span className="text-[#327c88]">
