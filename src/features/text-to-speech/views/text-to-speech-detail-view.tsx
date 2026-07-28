@@ -58,21 +58,28 @@ export function TextToSpeechDetailView({
   return (
     <TTSVoicesProvider value={{ customVoices, systemVoices, allVoices }}>
       <TextToSpeechForm key={generationId} defaultValues={defaultValues}>
-        <div className="flex min-h-0 flex-1 overflow-hidden">
-          <div className="flex min-h-0 flex-1 flex-col">
-            <TextInputPanel />
-            <VoicePreviewMobile
-              audioUrl={data.audioUrl}
-              voice={generationVoice}
-              text={data.text}
-            />
-            <VoicePreviewPanel
-              audioUrl={data.audioUrl}
-              voice={generationVoice}
-              text={data.text}
-            />
+        <div className="flex min-h-0 flex-1 flex-col">
+          <header className="flex items-center gap-2 border-b px-3 py-2.5 sm:px-4">
+            <span className="truncate text-sm font-medium tracking-tight">
+              Generation
+            </span>
+          </header>
+          <div className="flex min-h-0 flex-1 overflow-hidden">
+            <div className="flex min-h-0 flex-1 flex-col">
+              <TextInputPanel />
+              <VoicePreviewMobile
+                audioUrl={data.audioUrl}
+                voice={generationVoice}
+                text={data.text}
+              />
+              <VoicePreviewPanel
+                audioUrl={data.audioUrl}
+                voice={generationVoice}
+                text={data.text}
+              />
+            </div>
+            <SettingsPanel />
           </div>
-          <SettingsPanel />
         </div>
       </TextToSpeechForm>
     </TTSVoicesProvider>
