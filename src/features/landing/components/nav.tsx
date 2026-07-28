@@ -22,14 +22,12 @@ export function LandingNav() {
     <header
       className={cn(
         "fixed top-0 right-0 left-0 z-50 transition-all duration-300",
-        scrolled
-          ? "frosted dark:frosted-dark border-b border-border/50"
-          : "bg-transparent",
+        scrolled ? "frosted border-b border-border/50" : "bg-transparent",
       )}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl font-serif font-medium tracking-tight">
+          <span className="text-3xl font-serif font-medium tracking-tight">
             Zenvox
           </span>
         </Link>
@@ -38,16 +36,20 @@ export function LandingNav() {
           <div className="flex items-center gap-3">
             {isSignedIn ? (
               <Button
-                variant="outline"
+                variant="default"
                 size="default"
-                className="rounded-full px-4"
+                className="rounded-full bg-foreground/80 backdrop-blur shadow-sm border-none"
                 asChild
               >
                 <Link href="/dashboard">Dashboard</Link>
               </Button>
             ) : (
               <SignUpButton mode="modal">
-                <Button size="default" className="rounded-full px-4">
+                <Button
+                  variant="outline"
+                  size="default"
+                  className="rounded-full px-4 bg-transparent backdrop-blur shadow-2xs border-none"
+                >
                   Get started
                 </Button>
               </SignUpButton>
