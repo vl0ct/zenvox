@@ -12,7 +12,7 @@ export function VoicesList({ title, voices }: VoicesListProps) {
   if (!voices.length) {
     return (
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
+        <h3 className="text-lg font-serif font-normal tracking-tight text-foreground/80">{title}</h3>
 
         <div className="flex flex-col items-center justify-center gap-3 py-12">
           <div className="relative flex h-14 w-32 items-center justify-center">
