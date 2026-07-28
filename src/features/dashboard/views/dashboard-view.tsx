@@ -1,5 +1,3 @@
-import { PageHeader } from "@/components/page-header";
-import { HeroPattern } from "@/features/dashboard/components/hero-pattern";
 import { DashboardHeader } from "@/features/dashboard/components/dashboard-header";
 import { UsageMetrics } from "@/features/dashboard/components/usage-metrics";
 import { TextInputPanel } from "@/features/dashboard/components/text-input-panel";
@@ -7,10 +5,8 @@ import { QuickActionsPanel } from "@/features/dashboard/components/quick-actions
 
 export function DashboardView() {
   return (
-    <div className="relative">
-      <PageHeader title="Dashboard" className="lg:hidden" />
-      <HeroPattern />
-      <div className="relative space-y-8 p-4 lg:p-16">
+    <div className="flex min-h-0 flex-1 flex-col">
+      <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto p-4 mt-4 sm:p-5">
         <DashboardHeader />
         <UsageMetrics />
         <TextInputPanel />
