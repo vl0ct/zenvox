@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Toaster } from "@/components/ui/sonner";
@@ -8,12 +8,7 @@ import { TRPCReactProvider } from "@/trpc/client";
 import { clerkAppearance } from "@/lib/clerk-appearance";
 
 const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
@@ -33,11 +28,12 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={clerkAppearance}>
       <TRPCReactProvider>
-        <html lang="en">
+        <html lang="en" className="bg-background">
           <body
-            className={`${inter.variable} ${geistMono.variable} antialiased`}
+            className={`${inter.variable} antialiased`}
           >
             <NuqsAdapter>{children}</NuqsAdapter>
+            {/*<PageEdgeBlur />*/}
             <Toaster />
           </body>
         </html>
