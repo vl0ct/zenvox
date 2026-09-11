@@ -29,11 +29,11 @@ const variantStyles = {
     grid: "grid-cols-1 gap-10 md:grid-cols-2 md:items-center md:gap-14",
     nav: "gap-1",
     button: "py-2.5",
-    title: "text-base",
+    title: "text-2xl pb-2",
     titleSelected: "font-medium",
-    desc: "text-sm",
+    desc: "text-xl/6",
     media: "min-h-[320px] md:min-h-[420px]",
-    mediaRadius: "rounded-lg",
+    mediaRadius: "rounded-sm",
   },
   compact: {
     container: "py-10 sm:py-12",
@@ -124,7 +124,7 @@ function Reveal({
   );
 }
 
-export function Content01({
+export function Content({
   items,
   variant = "standard",
   animation = "none",

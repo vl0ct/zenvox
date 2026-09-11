@@ -1,6 +1,6 @@
 import { LandingNav } from "@/features/landing/components/nav";
-import { Hero02 } from "@/features/landing/components/hero-02";
-import { Content01 } from "@/features/landing/components/content-01";
+import { Hero } from "@/features/landing/components/hero";
+import { Content } from "@/features/landing/components/content";
 import { Cta01 } from "@/features/landing/components/cta-01";
 import { LandingFooter } from "@/features/landing/components/footer";
 
@@ -9,21 +9,21 @@ export default function LandingPage() {
     <div className="flex min-h-screen flex-col">
       <LandingNav />
       <main className="flex-1">
-        <Hero02
-          title="Turn text into"
-          titleLine2="lifelike speech."
+        <Hero
+          title={<>Turn <span className="underline decoration-dotted underline-offset-4">text</span> into</>}
+          titleLine2={<>lifelike <span className="underline decoration-dotted underline-offset-4">speech</span>.</>}
           description="Create studio-quality voiceovers in seconds. Choose from hundreds of expressive voices or clone your own. No recording studio required."
           washImage="https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=1144&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           animation="subtle"
           primaryCTA={{
-            ctaEnabled: true,
+            ctaEnabled: false,
             text: "Go to dashboard",
             link: "/dashboard",
             variant: "default",
             size: "lg",
           }}
         />
-        <Content01
+        <Content
           variant="standard"
           animation="subtle"
           items={[
@@ -82,10 +82,10 @@ export default function LandingPage() {
         <div className="mx-auto max-w-7xl px-6 pb-14">
           <Cta01
             title="Ready to bring your words to life?"
-            description="Join thousands of creators using Zenvox to create studio-quality voiceovers in seconds. No credit card required."
+            description=""
             cta={{
               ctaEnabled: true,
-              text: "Go to dashboard",
+              text: "Try for free",
               link: "/dashboard",
               variant: "default",
               size: "lg",

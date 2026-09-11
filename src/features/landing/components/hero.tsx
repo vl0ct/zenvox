@@ -3,15 +3,13 @@
 import * as React from "react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import Balancer from "react-wrap-balancer";
-
 import { cn } from "@/lib/utils";
-
 import { Cta, type CtaProps } from "./cta";
 import { DashboardDemo } from "./dashboard-demo";
 
 export interface Hero02Props {
-  title: string;
-  titleLine2?: string;
+  title: React.ReactNode;
+  titleLine2?: React.ReactNode;
   description: string;
   washImage: string;
   animation?: "none" | "subtle";
@@ -23,7 +21,7 @@ const variantStyles = {
   standard: {
     section: "py-20 sm:py-28",
     title: "text-3xl sm:text-4xl md:text-5xl",
-    description: "max-w-md text-sm sm:text-base",
+    description: "max-w-lg text-lg/6 sm:text-2xl/7",
     header: "gap-5",
     content: "gap-14 sm:gap-20",
   },
@@ -81,7 +79,7 @@ function Reveal({
   );
 }
 
-export function Hero02({
+export function Hero({
   title,
   titleLine2,
   description,
@@ -97,7 +95,7 @@ export function Hero02({
   const titleElement = title && (
     <h1
       className={cn(
-        "text-foreground/80 font-serif font-normal tracking-tight text-balance",
+        "text-foreground/80 font-sans font-normal tracking-tight text-balance",
         vs.title,
       )}
     >
@@ -112,12 +110,17 @@ export function Hero02({
   );
 
   const descriptionElement = description && (
-    <p className={cn("text-muted-foreground", vs.description)}>
+    <p className={cn("text-neutral-600", vs.description)}>
       <Balancer>{description}</Balancer>
     </p>
   );
 
-  const ctaElement = <Cta className="border-none shadow-sm bg-accent-foreground/80" cta={primaryCTA} />;
+  const ctaElement = (
+    <Cta
+      className="border-none shadow-sm bg-accent-foreground/80"
+      cta={primaryCTA}
+    />
+  );
 
   const mediaElement = (
     <div className="relative w-full overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10">
@@ -137,7 +140,7 @@ export function Hero02({
   );
 
   return (
-    <section className="bg-background relative isolate w-full overflow-hidden">
+    <section className="relative isolate w-full overflow-hidden">
       <motion.div
         className={cn(
           "relative z-10 mx-auto flex max-w-7xl flex-col px-6",
