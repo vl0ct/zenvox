@@ -20,7 +20,7 @@ export interface CtaProps {
   size?: "default" | "sm" | "lg";
 }
 
-const ctaVariants = cva("w-fit rounded-full px-4", {
+const ctaVariants = cva("w-fit rounded-sm px-4", {
   variants: {
     invert: {
       true: "bg-white! text-zinc-900! border-transparent! hover:bg-zinc-100!",
