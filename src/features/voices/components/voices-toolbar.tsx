@@ -24,7 +24,7 @@ export function VoicesToolbar() {
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="text-xl lg:text-2xl font-serif font-normal tracking-tight text-foreground/80">
+        <h2 className="text-xl lg:text-2xl font-sans font-normal tracking-tight text-foreground/80">
           All Libraries
         </h2>
         <p className="text-sm text-muted-foreground">

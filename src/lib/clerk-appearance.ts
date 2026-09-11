@@ -2,7 +2,7 @@ export const clerkAppearance = {
   elements: {
     card: "shadow-xl border border-border/50",
     navbar: "hidden",
-    headerTitle: "font-serif tracking-tight",
+    headerTitle: "font-sans tracking-tight",
     headerSubtitle: "text-muted-foreground",
     socialButtonsBlockButton:
       "rounded-full border-border/50 bg-transparent hover:bg-muted",

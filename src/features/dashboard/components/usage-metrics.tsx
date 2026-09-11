@@ -55,7 +55,7 @@ export function UsageMetrics() {
               <div className="min-w-0">
                 <p className="text-xs text-muted-foreground">{item.label}</p>
                 {item.value !== null ? (
-                  <p className="text-sm font-serif tabular-nums">
+                  <p className="text-sm font-sans tabular-nums">
                     {item.value}
                   </p>
                 ) : (

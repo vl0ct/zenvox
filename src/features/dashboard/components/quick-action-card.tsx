@@ -29,7 +29,7 @@ export function QuickActionCard({
 
       <div className="flex flex-col justify-between py-1">
         <div className="space-y-1">
-          <h3 className="text-sm font-serif font-normal tracking-tight text-foreground/80">
+          <h3 className="text-sm font-sans font-normal tracking-tight text-foreground/80">
             {title}
           </h3>
           <p className="text-xs text-muted-foreground leading-relaxed">

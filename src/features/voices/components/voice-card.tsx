@@ -89,7 +89,7 @@ export function VoiceCard({ voice }: VoiceCardProps) {
       </div>
 
       <div className="flex min-w-0 flex-1 flex-col gap-1.5 lg:gap-3">
-        <div className="flex items-center gap-1.5 line-clamp-1 text-sm font-serif font-normal tracking-tight text-foreground/80">
+        <div className="flex items-center gap-1.5 line-clamp-1 text-sm font-sans font-normal tracking-tight text-foreground/80">
           {voice.name}
           <span className="size-1 shrink-0 rounded-full bg-muted-foreground/50" />
           <span className="text-[#327c88]">
