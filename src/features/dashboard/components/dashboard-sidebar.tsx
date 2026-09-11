@@ -17,16 +17,14 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Logo } from "@/components/logo";
 import { OrganizationSwitcher, UserButton, useClerk } from "@clerk/nextjs";
 import {
   type LucideIcon,
   Home,
   LayoutGrid,
   AudioLines,
-  Volume2,
   Settings,
-  Headphones,
-  AudioWaveform,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -124,9 +122,7 @@ export function DashboardSidebar() {
       <SidebarHeader className="flex flex-col gap-4 pt-4">
         <div className="flex items-center group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:pl-0">
           <Link href="/">
-            <span className="group-data-[collapsible=icon]:hidden pl-2 font-serif font-medium text-xl tracking-tight text-foreground">
-              Zenvox
-            </span>
+            <Logo className="group-data-[collapsible=icon]:hidden size-10" />
           </Link>
           <SidebarTrigger className="ml-auto" />
         </div>
@@ -142,7 +138,7 @@ export function DashboardSidebar() {
                   rootBox:
                     "w-full! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:flex! group-data-[collapsible=icon]:justify-center!",
                   organizationSwitcherTrigger:
-                    "w-full! justify-between! rounded-full! pl-1! pr-2! py-1! gap-3! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:p-1! border! border-border/50!",
+                    "w-full! justify-between! rounded-sm! pl-1! pr-2! py-1! gap-3! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:p-1! border! border-border/50!",
                   organizationPreview: "gap-2!",
                   organizationPreviewAvatarBox: "size-6! rounded-full!",
                   organizationPreviewTextContainer:
@@ -156,7 +152,6 @@ export function DashboardSidebar() {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <div className="border-b border-border/50" />
       <SidebarContent>
         <NavSection items={mainMenuItems} pathname={pathname} />
         <NavSection
@@ -172,14 +167,14 @@ export function DashboardSidebar() {
             <UserButton
               showName
               fallback={
-                <Skeleton className="h-8.5 w-full group-data-[collapsible=icon]:size-8 rounded-md border border-border bg-white" />
+                <Skeleton className="h-8.5 w-full group-data-[collapsible=icon]:size-8 rounded-sm border border-border bg-white" />
               }
               appearance={{
                 elements: {
                   rootBox:
                     "w-full! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:flex! group-data-[collapsible=icon]:justify-center!",
                   userButtonTrigger:
-                    "w-full! justify-between! rounded-full! pl-1! pr-2! py-1! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:p-1! group-data-[collapsible=icon]:after:hidden! border! border-border/50! [--border:color-mix(in_srgb,transparent,var(--clerk-color-neutral,#000000)_15%)]!",
+                    "w-full! justify-between! rounded-sm! pl-1! pr-2! py-1! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:p-1! group-data-[collapsible=icon]:after:hidden! border! border-border/50! [--border:color-mix(in_srgb,transparent,var(--clerk-color-neutral,#000000)_15%)]!",
                   userButtonBox: "flex-row-reverse! gap-2!",
                   userButtonOuterIdentifier:
                     "text-[13px]! tracking-tight! font-medium! text-foreground! pl-0! group-data-[collapsible=icon]:hidden!",
