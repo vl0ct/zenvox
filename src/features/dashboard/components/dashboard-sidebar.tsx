@@ -13,7 +13,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarRail,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -45,7 +44,7 @@ function NavSection({ label, items, pathname }: NavSectionProps) {
   return (
     <SidebarGroup>
       {label && (
-        <SidebarGroupLabel className="text-[13px] uppercase text-muted-foreground tracking-widest ml-2">
+        <SidebarGroupLabel className="text-md font-semibold text-foreground tracking-wide ml-2">
           {label}
         </SidebarGroupLabel>
       )}
@@ -65,7 +64,7 @@ function NavSection({ label, items, pathname }: NavSectionProps) {
                 }
                 onClick={item.onClick}
                 tooltip={item.title}
-                className="h-9 px-3 py-2 text-[13px] tracking-tight font-medium"
+                className="h-9 w-auto px-3 py-2 ml-6 text-md tracking-tight font-medium group-data-[collapsible=icon]:ml-2 data-[active=true]:bg-[#e5e5e5]"
               >
                 {item.url ? (
                   <Link href={item.url}>
@@ -118,11 +117,12 @@ export function DashboardSidebar() {
   ];
 
   return (
-    <Sidebar collapsible="icon">
-      <SidebarHeader className="flex flex-col gap-4 pt-4">
+    <Sidebar collapsible="icon" className="border-r-0!">
+      <SidebarHeader className="flex flex-col ml-3 gap-4 pt-4 group-data-[collapsible=icon]:ml-4">
         <div className="flex items-center group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:pl-0">
-          <Link href="/">
-            <Logo className="group-data-[collapsible=icon]:hidden size-10" />
+          <Link href="/" className="flex items-center">
+            <Logo className="group-data-[collapsible=icon]:hidden bg-background size-10" />
+            <span className="group-data-[collapsible=icon]:hidden text-xl font-medium tracking-tight">Zenvox</span>
           </Link>
           <SidebarTrigger className="ml-auto" />
         </div>
@@ -138,7 +138,7 @@ export function DashboardSidebar() {
                   rootBox:
                     "w-full! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:flex! group-data-[collapsible=icon]:justify-center!",
                   organizationSwitcherTrigger:
-                    "w-full! justify-between! rounded-sm! pl-1! pr-2! py-1! gap-3! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:p-1! border! border-border/50!",
+                    "w-full! justify-between! rounded-sm! pl-1! pr-2! py-1! gap-3! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:p-1! border! border-border/50! bg-white!",
                   organizationPreview: "gap-2!",
                   organizationPreviewAvatarBox: "size-6! rounded-full!",
                   organizationPreviewTextContainer:
@@ -153,15 +153,14 @@ export function DashboardSidebar() {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavSection items={mainMenuItems} pathname={pathname} />
+        <NavSection label="Home" items={mainMenuItems} pathname={pathname} />
         <NavSection
-          label="Others"
+          label="Manage"
           items={othersMenuItems}
           pathname={pathname}
         />
       </SidebarContent>
-      <div className="border-b border-border/50" />
-      <SidebarFooter className="gap-3 py-3">
+      <SidebarFooter className="gap-3 py-3 ml-3 group-data-[collapsible=icon]:ml-4">
         <SidebarMenu>
           <SidebarMenuItem>
             <UserButton
@@ -174,7 +173,7 @@ export function DashboardSidebar() {
                   rootBox:
                     "w-full! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:flex! group-data-[collapsible=icon]:justify-center!",
                   userButtonTrigger:
-                    "w-full! justify-between! rounded-sm! pl-1! pr-2! py-1! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:p-1! group-data-[collapsible=icon]:after:hidden! border! border-border/50! [--border:color-mix(in_srgb,transparent,var(--clerk-color-neutral,#000000)_15%)]!",
+                    "w-full! justify-between! rounded-sm! pl-1! pr-2! py-1! group-data-[collapsible=icon]:w-auto! group-data-[collapsible=icon]:p-1! group-data-[collapsible=icon]:after:hidden! border! border-border/50! bg-white! [--border:color-mix(in_srgb,transparent,var(--clerk-color-neutral,#000000)_15%)]!",
                   userButtonBox: "flex-row-reverse! gap-2!",
                   userButtonOuterIdentifier:
                     "text-[13px]! tracking-tight! font-medium! text-foreground! pl-0! group-data-[collapsible=icon]:hidden!",
@@ -185,7 +184,6 @@ export function DashboardSidebar() {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
-      <SidebarRail />
     </Sidebar>
   );
 }
