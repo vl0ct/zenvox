@@ -23,7 +23,7 @@ export default async function DashboardLayout({
         <main className="flex min-h-0 flex-1 flex-col p-3 lg:p-4">
           <div
             className={cn(
-              "bg-card flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border",
+              "bg-card flex min-h-0 flex-1 flex-col overflow-hidden rounded-sm border",
               "shadow-[10px_18px_40px_-18px_rgba(0,0,0,0.16)]",
               "dark:shadow-[10px_18px_40px_-18px_rgba(0,0,0,0.5)]",
             )}
