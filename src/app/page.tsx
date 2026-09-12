@@ -3,10 +3,12 @@ import { Hero } from "@/features/landing/components/hero";
 import { Content } from "@/features/landing/components/content";
 import { Cta01 } from "@/features/landing/components/cta-01";
 import { LandingFooter } from "@/features/landing/components/footer";
+import { PageEdgeBlur } from "@/components/page-edge-blur";
 
 export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col">
+      <PageEdgeBlur />
       <LandingNav />
       <main className="flex-1">
         <Hero
