@@ -33,7 +33,7 @@ export function UsageMetrics() {
   ];
 
   return (
-    <div className="rounded-3xl bg-muted/50 p-1 hidden sm:block">
+    <div className="rounded-3xl bg-muted p-1 hidden sm:block">
       <div className="grid gap-3 sm:grid-cols-3">
         {items.map((item, i) => (
           <motion.div
@@ -46,20 +46,22 @@ export function UsageMetrics() {
               stiffness: 200,
               delay: i * 0.08,
             }}
-            className="rounded-2xl border border-border/50 frosted dark:frosted-dark p-4"
+            className="rounded-2xl border border-border/50 frosted dark:frosted-dark p-5"
           >
-            <div className="flex items-center gap-3">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted border border-border/50">
-                <item.icon className="size-4" />
+            <div className="flex flex-col gap-2 bg-white">
+              <div className="flex items-center gap-2.5">
+                {/*<div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-muted border border-border/50">
+                  <item.icon className="size-4 text-muted-foreground" />
+                </div>*/}
+                <p className="text-xs text-muted-foreground font-medium">{item.label}</p>
               </div>
               <div className="min-w-0">
-                <p className="text-xs text-muted-foreground">{item.label}</p>
                 {item.value !== null ? (
-                  <p className="text-sm font-sans tabular-nums">
+                  <p className="text-2xl font-semibold tabular-nums tracking-tight">
                     {item.value}
                   </p>
                 ) : (
-                  <Skeleton className="mt-1 h-4 w-16" />
+                  <Skeleton className="mt-1 h-7 w-20" />
                 )}
               </div>
             </div>
