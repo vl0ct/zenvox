@@ -18,7 +18,7 @@ export function SettingsPanelHistory() {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-2 p-8">
         <div className="relative flex w-25 items-center justify-center">
-          <div className="absolute left-0 -rotate-30 rounded-full bg-muted p-3">
+          <div className="absolute left-0 -rotate-30 rounded-sm bg-muted p-3">
             <AudioLines className="size-4 text-muted-foreground" />
           </div>
 
@@ -41,12 +41,12 @@ export function SettingsPanelHistory() {
   }
 
   return (
-    <div className="flex flex-col gap-1 p-2">
+    <div className="flex flex-col gap-2 p-2">
       {generations.map((generation) => (
         <Link
           href={`/dashboard/text-to-speech/${generation.id}`}
           key={generation.id}
-          className="flex items-center gap-3 rounded-xl border border-border/50 frosted dark:frosted-dark p-3 text-left shadow-sm transition-all duration-300 hover:shadow-md"
+          className="flex items-center gap-3 rounded-sm border border-border/50 frosted dark:frosted-dark p-3 text-left shadow-sm transition-all duration-300 hover:shadow-md"
         >
           <div className="flex min-w-0 flex-1 flex-col gap-0.5">
             <p className="truncate text-sm font-medium text-foreground">
