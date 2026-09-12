@@ -43,11 +43,6 @@ export function TextToSpeechView({
     <TTSVoicesProvider value={{ customVoices, systemVoices, allVoices }}>
       <TextToSpeechForm defaultValues={defaultValues}>
         <div className="flex min-h-0 flex-1 flex-col">
-          <header className="flex items-center gap-2 border-b px-3 py-2.5 sm:px-4">
-            <span className="truncate text-sm font-medium tracking-tight">
-              Text to Speech
-            </span>
-          </header>
           <div className="flex min-h-0 flex-1 overflow-hidden">
             <div className="flex min-h-0 flex-1 flex-col">
               <TextInputPanel />
