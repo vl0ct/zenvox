@@ -26,8 +26,8 @@ export function TextInputPanel() {
   };
 
   return (
-    <div className="rounded-3xl bg-[#F9F9F9] p-1">
-      <div className="space-y-4 rounded-2xl bg-white p-4 drop-shadow-xs">
+    <div className="rounded-sm bg-[#f9f9f9] p-1">
+      <div className="space-y-4 rounded-sm bg-white p-4 drop-shadow-xs">
         <Textarea
           placeholder="Start typing or paste your text here..."
           className="min-h-32 resize-none border-0 bg-transparent p-0 shadow-none focus-visible:ring-0 text-sm"
@@ -67,7 +67,7 @@ export function TextInputPanel() {
           size="sm"
           disabled={!text.trim()}
           onClick={handleGenerate}
-          className="rounded-full w-full sm:w-auto"
+          className="rounded-sm w-full sm:w-auto"
         >
           Generate speech
         </Button>
