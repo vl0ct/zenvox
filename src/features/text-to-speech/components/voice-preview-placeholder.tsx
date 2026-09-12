@@ -21,7 +21,7 @@ export function VoicePreviewPlaceholder() {
           </div>
         </div>
 
-        <p className="text-lg font-semibold tracking-tight text-foreground">
+        <p className="text-lg font-medium tracking-tight text-foreground">
           Preview will appear here
         </p>
         <p className="max-w-64 text-center text-sm text-muted-foreground">
