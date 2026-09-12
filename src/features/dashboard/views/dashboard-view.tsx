@@ -8,7 +8,7 @@ export function DashboardView() {
     <div className="flex min-h-0 flex-1 flex-col">
       <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto p-4 mt-4 sm:p-5">
         <DashboardHeader />
-        <UsageMetrics />
+        {/*<UsageMetrics />*/}
         <TextInputPanel />
         <QuickActionsPanel />
       </div>
