@@ -33,7 +33,6 @@ export default function RootLayout({
             className={`${inter.variable} antialiased`}
           >
             <NuqsAdapter>{children}</NuqsAdapter>
-            {/*<PageEdgeBlur />*/}
             <Toaster />
           </body>
         </html>
