@@ -77,13 +77,13 @@ export function PromptSuggestions({
 }) {
   return (
     <div className="space-y-2.5">
-      <p className="text-sm text-muted-foreground">Get started with</p>
+      <p className="text-sm text-muted-foreground ml-2">Get started with</p>
       <div className="flex flex-wrap gap-2">
         {PROMPT_SUGGESTIONS.map((suggestion) => (
           <Badge
             key={suggestion.label}
             variant="outline"
-            className="cursor-pointer gap-1.5 py-1 px-2.5 text-xs hover:bg-accent rounded-md"
+            className="cursor-pointer gap-1.5 py-1 px-2.5 text-xs hover:bg-accent rounded-sm"
             onClick={() => onSelect(suggestion.prompt)}
           >
             <suggestion.icon className="size-3.5 shrink-0" />
