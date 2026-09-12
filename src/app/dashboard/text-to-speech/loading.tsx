@@ -32,7 +32,7 @@ export default function Loading() {
         <VoicePreviewPlaceholder />
       </div>
 
-      <div className="hidden w-105 min-h-0 flex-col border-l lg:flex">
+      <div className="hidden min-h-0 w-105 flex-col border-l lg:flex">
         <div className="grid h-12 grid-cols-2 border-b">
           <div className="flex items-center justify-center border-r px-4">
             <Skeleton className="h-4 w-20" />

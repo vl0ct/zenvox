@@ -234,7 +234,7 @@ export function Content({
   );
 
   const animatedGridElement = (
-    <div className={cn("grid grid-cols-1 md:grid-cols-2 pt-20", vs.grid)}>
+    <div className={cn("grid grid-cols-1 pt-20 md:grid-cols-2", vs.grid)}>
       <Reveal active={animate} className="w-full self-center">
         <motion.nav
           className={cn("flex flex-col justify-center", vs.nav)}

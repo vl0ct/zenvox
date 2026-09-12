@@ -12,28 +12,30 @@ export function VoicesList({ title, voices }: VoicesListProps) {
   if (!voices.length) {
     return (
       <div className="space-y-4">
-        <h3 className="text-lg font-sans font-normal tracking-tight text-foreground/80">{title}</h3>
+        <h3 className="text-foreground/80 font-sans text-lg font-normal tracking-tight">
+          {title}
+        </h3>
 
         <div className="flex flex-col items-center justify-center gap-3 py-12">
           <div className="relative flex h-14 w-32 items-center justify-center">
-            <div className="absolute left-0 -rotate-30 rounded-full bg-muted p-4">
-              <Volume2 className="size-5 text-muted-foreground" />
+            <div className="bg-muted absolute left-0 -rotate-30 rounded-full p-4">
+              <Volume2 className="text-muted-foreground size-5" />
             </div>
 
-            <div className="relative z-10 rounded-full bg-foreground p-4">
-              <Mic className="size-5 text-background" />
+            <div className="bg-foreground relative z-10 rounded-full p-4">
+              <Mic className="text-background size-5" />
             </div>
 
-            <div className="absolute right-0 rotate-30 rounded-full bg-muted p-4">
-              <AudioLines className="size-5 text-muted-foreground" />
+            <div className="bg-muted absolute right-0 rotate-30 rounded-full p-4">
+              <AudioLines className="text-muted-foreground size-5" />
             </div>
           </div>
 
-          <p className="text-lg font-semibold tracking-tight text-foreground">
+          <p className="text-foreground text-lg font-semibold tracking-tight">
             No voices found
           </p>
 
-          <p className="max-w-md text-center text-sm text-muted-foreground">
+          <p className="text-muted-foreground max-w-md text-center text-sm">
             {title} will appear here
           </p>
         </div>

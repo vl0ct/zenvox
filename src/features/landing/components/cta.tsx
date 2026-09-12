@@ -5,12 +5,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export type ButtonVariant =
-  | "default"
-  | "destructive"
-  | "outline"
-  | "secondary"
-  | "ghost"
-  | "link";
+  "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
 
 export interface CtaProps {
   ctaEnabled?: boolean;

@@ -38,7 +38,7 @@ export function VoiceSelectorButton() {
         <span className="flex-1 truncate text-left text-sm font-medium">
           {buttonLabel}
         </span>
-        <ChevronDown className="size-4 shrink-0 text-muted-foreground" />
+        <ChevronDown className="text-muted-foreground size-4 shrink-0" />
       </Button>
     </DrawerTrigger>
   );

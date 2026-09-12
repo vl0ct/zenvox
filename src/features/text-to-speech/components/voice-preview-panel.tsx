@@ -74,10 +74,10 @@ export function VoicePreviewPanel({
   };
 
   return (
-    <div className="h-full gap-8 flex-col border-t hidden flex-1 lg:flex">
+    <div className="hidden h-full flex-1 flex-col gap-8 border-t lg:flex">
       {/* Header */}
       <div className="p-6 pb-0">
-        <h3 className="font-semibold text-foreground">Voice preview</h3>
+        <h3 className="text-foreground font-semibold">Voice preview</h3>
       </div>
 
       {/* Content */}
@@ -86,7 +86,7 @@ export function VoicePreviewPanel({
           <div className="absolute inset-0 z-10 flex items-center justify-center">
             <Badge
               variant="outline"
-              className="gap-2 bg-background/90 px-3 py-1.5 text-sm text-muted-foreground shadow-sm"
+              className="bg-background/90 text-muted-foreground gap-2 px-3 py-1.5 text-sm shadow-sm"
             >
               <Spinner className="size-4" />
               <span>Loading audio...</span>
@@ -104,7 +104,7 @@ export function VoicePreviewPanel({
 
       {/* Time display */}
       <div className="flex items-center justify-center">
-        <p className="text-3xl font-semibold tabular-nums tracking-tight text-foreground">
+        <p className="text-foreground text-3xl font-semibold tracking-tight tabular-nums">
           {formatTime(currentTime)}&nbsp;
           <span className="text-muted-foreground">
             /&nbsp;{formatTime(duration)}
@@ -117,11 +117,11 @@ export function VoicePreviewPanel({
         <div className="grid w-full grid-cols-3">
           {/* Metadata */}
           <div className="flex min-w-0 flex-col gap-0.5">
-            <p className="truncate text-sm font-medium text-foreground">
+            <p className="text-foreground truncate text-sm font-medium">
               {text}
             </p>
             {selectedVoiceName && (
-              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+              <div className="text-muted-foreground flex items-center gap-1 text-xs">
                 <VoiceAvatar
                   seed={selectedVoiceSeed ?? selectedVoiceName}
                   name={selectedVoiceName}
@@ -141,7 +141,7 @@ export function VoicePreviewPanel({
               onClick={() => seekBackward(10)}
               disabled={!isReady}
             >
-              <Undo className="size-4 -mb-1" />
+              <Undo className="-mb-1 size-4" />
               <span className="text-[10px] font-medium">10</span>
             </Button>
 
@@ -166,7 +166,7 @@ export function VoicePreviewPanel({
               onClick={() => seekForward(10)}
               disabled={!isReady}
             >
-              <Redo className="size-4 -mb-1" />
+              <Redo className="-mb-1 size-4" />
               <span className="text-[10px] font-medium">10</span>
             </Button>
           </div>

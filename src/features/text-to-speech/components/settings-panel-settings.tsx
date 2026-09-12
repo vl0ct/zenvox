@@ -17,12 +17,12 @@ export function SettingsPanelSettings() {
   return (
     <>
       {/* Voice Style Dropdown Section */}
-      <div className="border-b border-border/50 frosted dark:frosted-dark p-4">
+      <div className="border-border/50 frosted dark:frosted-dark border-b p-4">
         <VoiceSelector />
       </div>
 
       {/* Voice Adjustments Section */}
-      <div className="p-4 flex-1 frosted dark:frosted-dark">
+      <div className="frosted dark:frosted-dark flex-1 p-4">
         <FieldGroup className="gap-8">
           {sliders.map((slider) => (
             <form.Field key={slider.id} name={slider.id}>
@@ -30,10 +30,10 @@ export function SettingsPanelSettings() {
                 <Field>
                   <FieldLabel>{slider.label}</FieldLabel>
                   <div className="flex items-center justify-between">
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-muted-foreground text-xs">
                       {slider.leftLabel}
                     </span>
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-muted-foreground text-xs">
                       {slider.rightLabel}
                     </span>
                   </div>
@@ -44,7 +44,7 @@ export function SettingsPanelSettings() {
                     max={slider.max}
                     step={slider.step}
                     disabled={isSubmitting}
-                    className="**:data-[slot=slider-thumb]:size-3 **:data-[slot=slider-thumb]:bg-foreground **:data-[slot=slider-track]:h-1"
+                    className="**:data-[slot=slider-thumb]:bg-foreground **:data-[slot=slider-thumb]:size-3 **:data-[slot=slider-track]:h-1"
                   />
                 </Field>
               )}

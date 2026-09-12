@@ -24,17 +24,17 @@ export function VoicesToolbar() {
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="text-xl lg:text-3xl font-sans font-medium tracking-tight text-foreground/80">
+        <h2 className="text-foreground/80 font-sans text-xl font-medium tracking-tight lg:text-3xl">
           All Libraries
         </h2>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           Discover your voices, or make your own
         </p>
       </div>
 
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-3">
-          <InputGroup className="lg:max-w-sm rounded-sm">
+          <InputGroup className="rounded-sm lg:max-w-sm">
             <InputGroupAddon>
               <Search className="size-4" />
             </InputGroupAddon>

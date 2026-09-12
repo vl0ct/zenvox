@@ -103,13 +103,13 @@ function FileDropzone({
   if (file) {
     return (
       <div className="flex items-center gap-3 rounded-xl border p-4">
-        <div className="flex size-10 items-center justify-center rounded-lg bg-muted">
-          <FileAudio className="size-5 text-muted-foreground" />
+        <div className="bg-muted flex size-10 items-center justify-center rounded-lg">
+          <FileAudio className="text-muted-foreground size-5" />
         </div>
 
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm font-medium">{file.name}</p>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-muted-foreground text-xs">
             {formatFileSize(file.size)}
           </p>
         </div>
@@ -151,8 +151,8 @@ function FileDropzone({
       )}
     >
       <input {...getInputProps()} />
-      <div className="flex size-12 items-center justify-center rounded-xl bg-muted">
-        <AudioLines className="size-5 text-muted-foreground" />
+      <div className="bg-muted flex size-12 items-center justify-center rounded-xl">
+        <AudioLines className="text-muted-foreground size-5" />
       </div>
 
       <div className="flex flex-col items-center gap-1.5">
@@ -160,7 +160,7 @@ function FileDropzone({
           Upload your audio file
         </p>
 
-        <p className="text-center text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-center text-sm">
           Supports all audio formats, max size 20MB
         </p>
       </div>
@@ -202,7 +202,7 @@ function LanguageCombobox({
           )}
         >
           <div className="flex items-center gap-2 truncate">
-            <Globe className="size-4 shrink-0 text-muted-foreground" />
+            <Globe className="text-muted-foreground size-4 shrink-0" />
             {value ? selectedLabel : "Select language..."}
           </div>
           <ChevronsUpDown className="size-4 shrink-0 opacity-50" />
@@ -394,7 +394,7 @@ export function VoiceCreateForm({
               <Field data-invalid={isInvalid}>
                 <div className="relative flex items-center">
                   <div className="pointer-events-none absolute left-0 flex h-full w-11 items-center justify-center">
-                    <Tag className="size-4 text-muted-foreground" />
+                    <Tag className="text-muted-foreground size-4" />
                   </div>
                   <Input
                     id={field.name}
@@ -421,7 +421,7 @@ export function VoiceCreateForm({
               <Field data-invalid={isInvalid}>
                 <div className="relative flex items-center">
                   <div className="pointer-events-none absolute left-0 flex h-full w-11 items-center justify-center">
-                    <Layers className="size-4 text-muted-foreground" />
+                    <Layers className="text-muted-foreground size-4" />
                   </div>
                   <Select
                     value={field.state.value}
@@ -471,7 +471,7 @@ export function VoiceCreateForm({
               <Field data-invalid={isInvalid}>
                 <div className="relative flex items-center">
                   <div className="pointer-events-none absolute left-0 flex h-full w-11 items-center justify-center">
-                    <AlignLeft className="size-4 text-muted-foreground" />
+                    <AlignLeft className="text-muted-foreground size-4" />
                   </div>
                   <Textarea
                     id={field.name}

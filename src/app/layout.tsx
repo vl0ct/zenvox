@@ -29,9 +29,7 @@ export default function RootLayout({
     <ClerkProvider appearance={clerkAppearance}>
       <TRPCReactProvider>
         <html lang="en" className="bg-background">
-          <body
-            className={`${inter.variable} antialiased`}
-          >
+          <body className={`${inter.variable} antialiased`}>
             <NuqsAdapter>{children}</NuqsAdapter>
             <Toaster />
           </body>

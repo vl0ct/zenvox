@@ -75,9 +75,9 @@ export function VoiceCard({ voice }: VoiceCardProps) {
   );
 
   return (
-    <div className="flex items-center gap-1 overflow-hidden rounded-sm border border-border/50 frosted dark:frosted-dark shadow-sm pr-3 lg:pr-6">
+    <div className="border-border/50 frosted dark:frosted-dark flex items-center gap-1 overflow-hidden rounded-sm border pr-3 shadow-sm lg:pr-6">
       <div className="relative h-24 w-20 shrink-0 lg:h-30 lg:w-24">
-        <div className="absolute left-0 top-0 h-24 w-10 outline outline-1 outline-black/10 dark:outline-white/10 bg-muted/50 lg:h-30 lg:w-12" />
+        <div className="bg-muted/50 absolute top-0 left-0 h-24 w-10 outline outline-1 outline-black/10 lg:h-30 lg:w-12 dark:outline-white/10" />
 
         <div className="absolute inset-0 flex items-center justify-center">
           <VoiceAvatar
@@ -89,15 +89,15 @@ export function VoiceCard({ voice }: VoiceCardProps) {
       </div>
 
       <div className="flex min-w-0 flex-1 flex-col gap-1.5 lg:gap-3">
-        <div className="flex items-center gap-1.5 line-clamp-1 text-md font-sans font-medium tracking-tight text-foreground/80">
+        <div className="text-md text-foreground/80 line-clamp-1 flex items-center gap-1.5 font-sans font-medium tracking-tight">
           {voice.name}
-          <span className="size-1 shrink-0 rounded-full bg-muted-foreground/50" />
+          <span className="bg-muted-foreground/50 size-1 shrink-0 rounded-full" />
           <span className="text-[#327c88]">
             {VOICE_CATEGORY_LABELS[voice.category]}
           </span>
         </div>
 
-        <p className="line-clamp-1 text-sm text-muted-foreground">
+        <p className="text-muted-foreground line-clamp-1 text-sm">
           {voice.description}
         </p>
 
@@ -132,7 +132,7 @@ export function VoiceCard({ voice }: VoiceCardProps) {
           <DropdownMenuContent align="end">
             <DropdownMenuItem asChild>
               <Link href={`/dashboard/text-to-speech?voiceId=${voice.id}`}>
-                <Mic className="size-4 text-foreground" />
+                <Mic className="text-foreground size-4" />
                 <span className="font-medium">Use this voice</span>
               </Link>
             </DropdownMenuItem>
@@ -141,7 +141,7 @@ export function VoiceCard({ voice }: VoiceCardProps) {
                 onClick={() => setShowDeleteDialog(true)}
                 className="text-destructive focus:text-destructive"
               >
-                <Trash2 className="size-4 text-destructive" />
+                <Trash2 className="text-destructive size-4" />
                 <span className="font-medium">Delete voice</span>
               </DropdownMenuItem>
             )}

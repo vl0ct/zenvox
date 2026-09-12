@@ -16,7 +16,7 @@ export function QuickActionCard({
     <div className="rounded-sm bg-[#f9f9f9] p-1">
       <Link
         href={href}
-        className="group relative flex gap-4 rounded-sm border border-border/50 frosted p-4 shadow-sm transition-all duration-300 hover:shadow-md"
+        className="group border-border/50 frosted relative flex gap-4 rounded-sm border p-4 shadow-sm transition-all duration-300 hover:shadow-md"
       >
         <div
           className={cn(
@@ -27,14 +27,14 @@ export function QuickActionCard({
 
         <div className="flex flex-col justify-between py-1">
           <div className="space-y-0">
-            <h3 className="text-md font-sans font-medium tracking-tight text-foreground/80">
+            <h3 className="text-md text-foreground/80 font-sans font-medium tracking-tight">
               {title}
             </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground text-sm leading-relaxed">
               {description}
             </p>
           </div>
-          <span className="flex items-center gap-1 pt-2 text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+          <span className="text-muted-foreground group-hover:text-foreground flex items-center gap-1 pt-2 text-xs font-medium transition-colors">
             Try now
             <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
           </span>

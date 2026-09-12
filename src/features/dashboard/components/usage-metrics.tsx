@@ -33,7 +33,7 @@ export function UsageMetrics() {
   ];
 
   return (
-    <div className="rounded-3xl bg-muted p-1 hidden sm:block">
+    <div className="bg-muted hidden rounded-3xl p-1 sm:block">
       <div className="grid gap-3 sm:grid-cols-3">
         {items.map((item, i) => (
           <motion.div
@@ -46,18 +46,20 @@ export function UsageMetrics() {
               stiffness: 200,
               delay: i * 0.08,
             }}
-            className="rounded-2xl border border-border/50 frosted dark:frosted-dark p-5"
+            className="border-border/50 frosted dark:frosted-dark rounded-2xl border p-5"
           >
             <div className="flex flex-col gap-2 bg-white">
               <div className="flex items-center gap-2.5">
                 {/*<div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-muted border border-border/50">
                   <item.icon className="size-4 text-muted-foreground" />
                 </div>*/}
-                <p className="text-xs text-muted-foreground font-medium">{item.label}</p>
+                <p className="text-muted-foreground text-xs font-medium">
+                  {item.label}
+                </p>
               </div>
               <div className="min-w-0">
                 {item.value !== null ? (
-                  <p className="text-2xl font-semibold tabular-nums tracking-tight">
+                  <p className="text-2xl font-semibold tracking-tight tabular-nums">
                     {item.value}
                   </p>
                 ) : (

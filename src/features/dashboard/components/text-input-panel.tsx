@@ -30,7 +30,7 @@ export function TextInputPanel() {
       <div className="space-y-4 rounded-sm bg-white p-4 drop-shadow-xs">
         <Textarea
           placeholder="Start typing or paste your text here..."
-          className="min-h-32 resize-none border-0 bg-transparent p-0 shadow-none focus-visible:ring-0 text-sm"
+          className="min-h-32 resize-none border-0 bg-transparent p-0 text-sm shadow-none focus-visible:ring-0"
           value={text}
           onChange={(e) => setText(e.target.value)}
           maxLength={TEXT_MAX_LENGTH}
@@ -39,7 +39,7 @@ export function TextInputPanel() {
         <div className="flex items-center justify-between">
           <Badge
             variant="outline"
-            className="gap-1.5 border-dashed rounded-full"
+            className="gap-1.5 rounded-full border-dashed"
           >
             <Coins className="size-3" />
             <span className="text-xs">
@@ -55,7 +55,7 @@ export function TextInputPanel() {
               )}
             </span>
           </Badge>
-          <span className="text-xs text-muted-foreground">
+          <span className="text-muted-foreground text-xs">
             {text.length.toLocaleString()} / {TEXT_MAX_LENGTH.toLocaleString()}{" "}
             characters
           </span>
@@ -67,7 +67,7 @@ export function TextInputPanel() {
           size="sm"
           disabled={!text.trim()}
           onClick={handleGenerate}
-          className="rounded-sm w-full sm:w-auto"
+          className="w-full rounded-sm sm:w-auto"
         >
           Generate speech
         </Button>

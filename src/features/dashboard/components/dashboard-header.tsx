@@ -6,9 +6,9 @@ export function DashboardHeader() {
 
   return (
     <div className="flex items-start justify-between">
-      <div className="space-y-1 ml-4">
-        <p className="text-sm text-muted-foreground">Nice to see you</p>
-        <h1 className="text-xl lg:text-3xl font-sans font-medium tracking-tight">
+      <div className="ml-4 space-y-1">
+        <p className="text-muted-foreground text-sm">Nice to see you</p>
+        <h1 className="font-sans text-xl font-medium tracking-tight lg:text-3xl">
           {isLoaded ? (user?.fullName ?? user?.firstName ?? "there") : "..."}
         </h1>
       </div>

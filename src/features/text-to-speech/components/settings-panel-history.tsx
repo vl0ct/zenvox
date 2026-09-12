@@ -18,22 +18,22 @@ export function SettingsPanelHistory() {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-2 p-8">
         <div className="relative flex w-25 items-center justify-center">
-          <div className="absolute left-0 -rotate-30 rounded-sm bg-muted p-3">
-            <AudioLines className="size-4 text-muted-foreground" />
+          <div className="bg-muted absolute left-0 -rotate-30 rounded-sm p-3">
+            <AudioLines className="text-muted-foreground size-4" />
           </div>
 
-          <div className="relative z-10 rounded-full bg-foreground p-3">
-            <AudioWaveform className="size-4 text-background" />
+          <div className="bg-foreground relative z-10 rounded-full p-3">
+            <AudioWaveform className="text-background size-4" />
           </div>
 
-          <div className="absolute right-0 rotate-30 rounded-full bg-muted p-3">
-            <Clock className="size-4 text-muted-foreground" />
+          <div className="bg-muted absolute right-0 rotate-30 rounded-full p-3">
+            <Clock className="text-muted-foreground size-4" />
           </div>
         </div>
-        <p className="font-semibold tracking-tight text-foreground">
+        <p className="text-foreground font-semibold tracking-tight">
           No generations yet
         </p>
-        <p className="max-w-48 text-center text-xs text-muted-foreground">
+        <p className="text-muted-foreground max-w-48 text-center text-xs">
           Generate some audio and it will appear here
         </p>
       </div>
@@ -46,13 +46,13 @@ export function SettingsPanelHistory() {
         <Link
           href={`/dashboard/text-to-speech/${generation.id}`}
           key={generation.id}
-          className="flex items-center gap-3 rounded-sm border border-border/50 frosted dark:frosted-dark p-3 text-left shadow-sm transition-all duration-300 hover:shadow-md"
+          className="border-border/50 frosted dark:frosted-dark flex items-center gap-3 rounded-sm border p-3 text-left shadow-sm transition-all duration-300 hover:shadow-md"
         >
           <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-            <p className="truncate text-sm font-medium text-foreground">
+            <p className="text-foreground truncate text-sm font-medium">
               {generation.text}
             </p>
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <div className="text-muted-foreground flex items-center gap-1.5 text-xs">
               <VoiceAvatar
                 seed={generation.voiceId ?? generation.voiceName}
                 name={generation.voiceName}

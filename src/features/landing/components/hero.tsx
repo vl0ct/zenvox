@@ -117,7 +117,7 @@ export function Hero({
 
   const ctaElement = (
     <Cta
-      className="border-none shadow-sm bg-accent-foreground/80"
+      className="bg-accent-foreground/80 border-none shadow-sm"
       cta={primaryCTA}
     />
   );
