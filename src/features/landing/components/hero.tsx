@@ -133,8 +133,20 @@ export function Hero({
         />
       )}
       <div className="from-background/30 via-background/10 to-background/40 absolute inset-0 bg-gradient-to-b" />
-      <div className="relative flex items-center justify-center px-6 py-12 sm:px-12 sm:py-16">
-        <DashboardDemo />
+      <div className="relative flex justify-center overflow-hidden px-6 py-6 sm:px-12 sm:py-8">
+        <div className="translate-y-22 scale-120">
+          <DashboardDemo />
+        </div>
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
+          style={{
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            maskImage: "linear-gradient(to top, grey 0%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to top, grey 0%, transparent 100%)",
+          }}
+        />
       </div>
     </div>
   );
