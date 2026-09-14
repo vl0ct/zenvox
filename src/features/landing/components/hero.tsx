@@ -126,7 +126,7 @@ export function Hero({
 
   const mediaElement = (
     <>
-      <div className="hidden sm:block">
+      <div className="hidden min-[1300px]:block">
         <div className="relative w-full overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10 sm:h-120 lg:h-152">
           {washImage && (
             <img
@@ -158,7 +158,7 @@ export function Hero({
         href="/demo"
         className={cn(
           buttonVariants({ variant: "default", size: "lg" }),
-          "sm:hidden",
+          "max-[1299px]:block hidden",
         )}
       >
         Live Demo
