@@ -123,7 +123,7 @@ export function Hero({
   );
 
   const mediaElement = (
-    <div className="relative w-full overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10">
+    <div className="relative w-full overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10 sm:h-120 lg:h-152">
       {washImage && (
         <img
           src={washImage}
