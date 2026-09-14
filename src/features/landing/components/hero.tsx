@@ -5,9 +5,10 @@ import { motion, useReducedMotion, type Variants } from "motion/react";
 import Balancer from "react-wrap-balancer";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Cta, type CtaProps } from "./cta";
 import { DashboardDemo } from "./dashboard-demo";
+import { MoveDownRight } from "lucide-react";
 
 export interface Hero02Props {
   title: React.ReactNode;
@@ -127,7 +128,7 @@ export function Hero({
   const mediaElement = (
     <>
       <div className="hidden min-[1300px]:block">
-        <div className="relative w-full overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10 sm:h-120 lg:h-152">
+        <div className="relative w-full overflow-hidden rounded-md outline outline-black/10 sm:h-120 lg:h-152 dark:outline-white/10">
           {washImage && (
             <img
               src={washImage}
@@ -141,6 +142,7 @@ export function Hero({
             <div className="translate-y-22 scale-120">
               <DashboardDemo />
             </div>
+          </div>
             <div
               className="pointer-events-none absolute inset-x-0 bottom-0 h-12"
               style={{
@@ -151,18 +153,22 @@ export function Hero({
                   "linear-gradient(to top, grey 0%, transparent 100%)",
               }}
             />
-          </div>
         </div>
       </div>
-      <Link
-        href="/demo"
-        className={cn(
-          buttonVariants({ variant: "default", size: "lg" }),
-          "max-[1299px]:block hidden w-fit",
-        )}
-      >
-        Live Demo
-      </Link>
+      <div className="h-[40vh] hidden max-[1299px]:block">
+      <div className="bg-muted hidden w-fit items-center rounded-sm p-1 max-[1299px]:block">
+        <Button
+          variant="default"
+          className="text-background hover:text-background rounded-sm bg-neutral-700 font-semibold tracking-wide hover:bg-neutral-600"
+          asChild
+        >
+          <Link href="/demo" className="">
+            Live Demo
+            <MoveDownRight className="size-4" />
+          </Link>
+        </Button>
+        </div>
+      </div>
     </>
   );
 
