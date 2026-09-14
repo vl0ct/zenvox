@@ -4,6 +4,8 @@ import * as React from "react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import Balancer from "react-wrap-balancer";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 import { Cta, type CtaProps } from "./cta";
 import { DashboardDemo } from "./dashboard-demo";
 
@@ -123,32 +125,45 @@ export function Hero({
   );
 
   const mediaElement = (
-    <div className="relative w-full overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10 sm:h-120 lg:h-152">
-      {washImage && (
-        <img
-          src={washImage}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 size-full object-cover"
-        />
-      )}
-      <div className="from-background/30 via-background/10 to-background/40 absolute inset-0 bg-gradient-to-b" />
-      <div className="relative flex justify-center overflow-hidden px-6 py-6 sm:px-12 sm:py-8">
-        <div className="translate-y-22 scale-120 max-sm:translate-y-12 max-sm:scale-110">
-          <DashboardDemo />
+    <>
+      <div className="hidden sm:block">
+        <div className="relative w-full overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10 sm:h-120 lg:h-152">
+          {washImage && (
+            <img
+              src={washImage}
+              alt=""
+              aria-hidden
+              className="absolute inset-0 size-full object-cover"
+            />
+          )}
+          <div className="from-background/30 via-background/10 to-background/40 absolute inset-0 bg-gradient-to-b" />
+          <div className="relative flex justify-center overflow-hidden px-6 py-6 sm:px-12 sm:py-8">
+            <div className="translate-y-22 scale-120">
+              <DashboardDemo />
+            </div>
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-12"
+              style={{
+                backdropFilter: "blur(8px)",
+                WebkitBackdropFilter: "blur(8px)",
+                maskImage: "linear-gradient(to top, grey 0%, transparent 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(to top, grey 0%, transparent 100%)",
+              }}
+            />
+          </div>
         </div>
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
-          style={{
-            backdropFilter: "blur(8px)",
-            WebkitBackdropFilter: "blur(8px)",
-            maskImage: "linear-gradient(to top, grey 0%, transparent 100%)",
-            WebkitMaskImage:
-              "linear-gradient(to top, grey 0%, transparent 100%)",
-          }}
-        />
       </div>
-    </div>
+      <Link
+        href="/demo"
+        className={cn(
+          buttonVariants({ variant: "default", size: "lg" }),
+          "sm:hidden",
+        )}
+      >
+        Live Demo
+      </Link>
+    </>
   );
 
   return (
