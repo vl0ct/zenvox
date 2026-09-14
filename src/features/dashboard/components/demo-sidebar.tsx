@@ -16,7 +16,12 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Logo } from "@/components/logo";
-import { Home } from "lucide-react";
+import {
+  Home,
+  LayoutGrid,
+  AudioLines,
+  Settings,
+} from "lucide-react";
 import Link from "next/link";
 
 export function DemoSidebar() {
@@ -53,6 +58,45 @@ export function DemoSidebar() {
                     <Home />
                     <span>Dashboard</span>
                   </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  disabled
+                  tooltip="Explore voices"
+                  className="text-md ml-6 h-9 w-auto px-3 py-2 font-medium tracking-tight opacity-50 group-data-[collapsible=icon]:ml-2"
+                >
+                  <LayoutGrid />
+                  <span>Explore voices</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  disabled
+                  tooltip="Text to speech"
+                  className="text-md ml-6 h-9 w-auto px-3 py-2 font-medium tracking-tight opacity-50 group-data-[collapsible=icon]:ml-2"
+                >
+                  <AudioLines />
+                  <span>Text to speech</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-md text-foreground ml-2 font-semibold tracking-wide">
+            Manage
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  disabled
+                  tooltip="Settings"
+                  className="text-md ml-6 h-9 w-auto px-3 py-2 font-medium tracking-tight opacity-50 group-data-[collapsible=icon]:ml-2"
+                >
+                  <Settings />
+                  <span>Settings</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
