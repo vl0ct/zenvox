@@ -11,7 +11,6 @@ export interface Hero02Props {
   title: React.ReactNode;
   titleLine2?: React.ReactNode;
   description: string;
-  washImage: string;
   animation?: "none" | "subtle";
   primaryCTA: CtaProps;
   variant?: "standard" | "compact";
@@ -83,7 +82,6 @@ export function Hero({
   title,
   titleLine2,
   description,
-  washImage,
   animation = "none",
   primaryCTA,
   variant = "standard",
@@ -123,31 +121,19 @@ export function Hero({
   );
 
   const mediaElement = (
-    <div className="relative w-full overflow-hidden rounded-md outline outline-black/10 dark:outline-white/10">
-      {washImage && (
-        <img
-          src={washImage}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 size-full object-cover"
-        />
-      )}
-      <div className="from-background/30 via-background/10 to-background/40 absolute inset-0 bg-gradient-to-b" />
-      <div className="relative flex justify-center overflow-hidden px-6 py-6 sm:px-12 sm:py-8">
-        <div className="translate-y-22 scale-120 max-sm:translate-y-12 max-sm:scale-110">
-          <DashboardDemo />
-        </div>
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
-          style={{
-            backdropFilter: "blur(8px)",
-            WebkitBackdropFilter: "blur(8px)",
-            maskImage: "linear-gradient(to top, grey 0%, transparent 100%)",
-            WebkitMaskImage:
-              "linear-gradient(to top, grey 0%, transparent 100%)",
-          }}
-        />
-      </div>
+    <div className="relative mt-8 flex items-center justify-center overflow-hidden rounded-lg p-4 pb-0 sm:h-120 lg:h-152">
+      <DashboardDemo className="-mb-12 w-full max-w-4xl rounded-t-lg shadow-2xl" />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
+        aria-hidden="true"
+        style={{
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          maskImage: "linear-gradient(to top, grey 0%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to top, grey 0%, transparent 100%)",
+        }}
+      />
     </div>
   );
 
