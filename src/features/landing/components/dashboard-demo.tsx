@@ -1,15 +1,14 @@
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 
-export function DashboardDemo({ className }: { className?: string }) {
+export function DashboardDemo() {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full max-w-7xl">
       <Image
         src="/screenshot.png"
         alt="Dashboard preview"
         width={1200}
         height={675}
-        className={cn("w-full", className)}
+        className="w-full rounded-md shadow-xl"
         priority
       />
     </div>
