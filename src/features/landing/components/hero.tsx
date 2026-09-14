@@ -158,7 +158,7 @@ export function Hero({
         href="/demo"
         className={cn(
           buttonVariants({ variant: "default", size: "lg" }),
-          "max-[1299px]:block hidden",
+          "max-[1299px]:block hidden w-fit",
         )}
       >
         Live Demo
