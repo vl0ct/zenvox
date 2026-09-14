@@ -133,8 +133,8 @@ export function Hero({
         />
       )}
       <div className="from-background/30 via-background/10 to-background/40 absolute inset-0 bg-gradient-to-b" />
-      <div className="relative flex justify-center overflow-hidden px-2 py-4 sm:px-12 sm:py-8">
-        <div className="translate-y-12 sm:translate-y-22 scale-110 sm:scale-120">
+      <div className="relative flex justify-center overflow-hidden px-6 py-6 sm:px-12 sm:py-8">
+        <div className="translate-y-22 scale-120 max-sm:translate-y-12 max-sm:scale-110">
           <DashboardDemo />
         </div>
         <div
